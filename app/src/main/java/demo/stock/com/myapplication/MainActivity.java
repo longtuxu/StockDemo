@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout);
+
         et_current_price = findViewById(R.id.et_current_price);
         et_ratio = findViewById(R.id.et_ratio);
         et_result = findViewById(R.id.et_result);
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity
         et_ratio.addTextChangedListener(new DecimalMultiplyTextWatcher());
         et_ratio.addTextChangedListener(new DecimalMultiplyTextWatcher());
 
+        //复制按钮，监听
         bt_copy.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -65,12 +67,17 @@ public class MainActivity extends AppCompatActivity
         {
             try
             {
+                // 现价
                 double currentPrice = Double.parseDouble(et_current_price.getText().toString());
+                // 涨幅，点数
                 double ratio = Double.parseDouble(String.valueOf(1 + Double.parseDouble(et_ratio.getText().toString()) * 0.01));
+                // 止盈价（目标价）
                 double goalPrice = currentPrice * ratio;
+                // 把目标价格转化成后两位数的格式，并且四舍五入
                 BigDecimal bg = new BigDecimal(goalPrice);
                 bg = bg.setScale(2, RoundingMode.HALF_UP); // 四舍五入到小数点后两位
                 String copyResult = String.valueOf(bg.doubleValue());
+                // 更新止盈价
                 et_result.setText(copyResult);
             } catch (NumberFormatException e)
             {
@@ -88,7 +95,6 @@ public class MainActivity extends AppCompatActivity
         ClipData clip = ClipData.newPlainText("copied text", textToCopy);
         // 将ClipData对象复制到剪贴板
         clipboard.setPrimaryClip(clip);
-
         // 显示复制成功的提示信息
         Toast.makeText(this, textToCopy, Toast.LENGTH_SHORT).show();
     }

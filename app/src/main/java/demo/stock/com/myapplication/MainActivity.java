@@ -70,7 +70,18 @@ public class MainActivity extends AppCompatActivity
                 // 现价
                 double currentPrice = Double.parseDouble(et_current_price.getText().toString());
                 // 涨幅，点数
-                double ratio = Double.parseDouble(String.valueOf(1 + Double.parseDouble(et_ratio.getText().toString()) * 0.01));
+                String inputStr = et_ratio.getText().toString();
+                Double num = Double.parseDouble(inputStr);
+                double ratio;
+                if (num < 0)
+                {
+                    num = Math.abs(num); //去掉负号
+                    ratio = 1 - num * 0.01;
+                } else
+                {
+                    ratio = 1 + num * 0.01;
+                }
+
                 // 止盈价（目标价）
                 double goalPrice = currentPrice * ratio;
                 // 把目标价格转化成后两位数的格式，并且四舍五入

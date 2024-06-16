@@ -1,10 +1,10 @@
 package demo.stock.com.myapplication;
 
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -15,7 +15,7 @@ import android.widget.Toast;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends Activity
 {
     private EditText et_current_price, et_ratio, et_result;
     private Button bt_copy;

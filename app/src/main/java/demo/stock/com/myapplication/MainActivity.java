@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+
 public class MainActivity extends Activity
 {
     private EditText et_current_price, et_ratio, et_result;

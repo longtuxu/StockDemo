@@ -5,7 +5,6 @@ android {
     defaultConfig {
         applicationId "demo.stock.com.myapplication"
         minSdkVersion 14
-        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -16,7 +15,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-        buildToolsVersion '27.0.3'
+
+    defaultConfig {
+
+        namespace 'demo.stock.com.myapplication' // 替换为你的实际包名
+    }
 }
 
 dependencies {

@@ -32,7 +32,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         bt_clean.setOnClickListener(this);
 
 
-        // 为et_current_price设置TextWatcher
+        // 为「现价」设置TextWatcher
         et_current_price.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -44,11 +44,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             @Override
             public void afterTextChanged(Editable s) {
-                calculateAndUpdateResult();
+                calculateAndUpdateResult(); // 「现价」和「涨跌幅」输入框输入值后，更新「结果价」内容
             }
         });
 
-        // 为et_ratio设置TextWatcher
+        // 为「涨跌幅」设置TextWatcher
         et_ratio.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -60,11 +60,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             @Override
             public void afterTextChanged(Editable s) {
-                calculateAndUpdateResult();
+                calculateAndUpdateResult(); // 「现价」和「涨跌幅」输入框输入值后，更新「结果价」内容
             }
         });
 
-        // 为et_current_price设置TextWatcher
+        // 为「现价」设置TextWatcher
         et_current_price.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -76,11 +76,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             @Override
             public void afterTextChanged(Editable s) {
-                calculateRatio();
+                calculateRatio(); // 现价输入框输入内容后，更新Ratio「涨跌幅」的数值显示
             }
         });
 
-        // 为et_target_price设置TextWatcher
+        // 为「目标价」设置TextWatcher
         et_target_price.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -92,11 +92,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             @Override
             public void afterTextChanged(Editable s) {
-                calculateRatio();
+                calculateRatio(); // 目标价输入框输入内容后，更新Ratio「涨跌幅」的数值显示
             }
         });
     }
 
+    /**
+     * 「目标价」输入框输入内容后，更新Ratio「涨跌幅」的数值显示
+     */
     private void calculateRatio() {
         try {
             // 获取现价和目标价
@@ -127,7 +130,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         et_target_price.setText("");
     }
 
-
+   /**
+    * 现价」和「涨跌幅」输入框输入值后，更新「结果价」内容
+    */
     private void calculateAndUpdateResult() {
         try {
             // 获取现价和涨跌幅

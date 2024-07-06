@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">股票助手</string>
+    <string name="app_name">算价助手</string>
+    <string name="现价">现价</string>
+    <string name="涨跌幅">涨跌幅</string>
+    <string name="结果价">结果价</string>
+    <string name="目标价">目标价</string>
+    <string name="清空">清空</string>
 </resources>
